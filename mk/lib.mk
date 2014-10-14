@@ -29,8 +29,10 @@ mandir ?= $(prefix)/share/man
 BUILD_SHARED_LIBS ?= 1
 
 ifeq ($(BUILD_SHARED_LIBS), 1)
-  GLOBAL_CFLAGS += -fPIC
-  GLOBAL_CXXFLAGS += -fPIC
+  #GLOBAL_CFLAGS += -fPIC
+  #GLOBAL_CXXFLAGS += -fPIC
+  GLOBAL_CFLAGS += -U__STRICT_ANSI__
+  GLOBAL_CXXFLAGS += -U__STRICT_ANSI__
   ifneq ($(OS), Darwin)
    ifneq ($(OS), SunOS)
     GLOBAL_LDFLAGS += -Wl,--no-copy-dt-needed-entries

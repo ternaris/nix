@@ -3,7 +3,7 @@ libs-list :=
 ifeq ($(OS), Darwin)
   SO_EXT = dylib
 else
-  SO_EXT = so
+  SO_EXT = dll
 endif
 
 # Build a library with symbolic name $(1).  The library is defined by
@@ -62,7 +62,6 @@ define build-library
       endif
     else
       ifneq ($(OS), Darwin)
-        $(1)_LDFLAGS += -Wl,-z,defs
       endif
     endif
 
