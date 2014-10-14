@@ -17,6 +17,7 @@
 #include <sys/un.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <stdlib.h>
 
 using namespace nix;
 
