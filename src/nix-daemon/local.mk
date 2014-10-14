@@ -2,9 +2,9 @@ programs += nix-daemon
 
 nix-daemon_DIR := $(d)
 
-nix-daemon_SOURCES := $(d)/nix-daemon.cc
+nix-daemon_SOURCES := $(d)/nix-daemon.cc $(d)/../libmain/shared.cc $(d)/../libmain/stack.cc
 
-nix-daemon_LIBS = libmain libstore libutil libformat
+nix-daemon_LIBS = libstore libutil libformat
 
 ifeq ($(OS), SunOS)
         nix-daemon_LDFLAGS += -lsocket

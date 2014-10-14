@@ -3,7 +3,6 @@ makefiles = \
   src/boost/format/local.mk \
   src/libutil/local.mk \
   src/libstore/local.mk \
-  src/libmain/local.mk \
   src/libexpr/local.mk \
   src/nix-hash/local.mk \
   src/nix-store/local.mk \

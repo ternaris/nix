@@ -23,7 +23,9 @@ ifeq ($(perlbindings), yes)
 
   Store_SOURCES := $(Store_DIR)/Store.cc
 
-  Store_LIBS = libstore
+  Store_LIBS = libstore libutil
+
+  Store_LDFLAGS = /usr/lib/perl5/core_perl/CORE/msys-perl5_20.dll
 
   Store_CXXFLAGS = \
     -I$(shell $(perl) -e 'use Config; print $$Config{archlibexp};')/CORE \
