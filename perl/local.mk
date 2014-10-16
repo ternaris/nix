@@ -25,7 +25,11 @@ ifeq ($(perlbindings), yes)
 
   Store_LIBS = libstore libutil
 
-  Store_LDFLAGS = /usr/lib/perl5/core_perl/CORE/msys-perl5_20.dll
+  #Store_LDFLAGS = /usr/lib/perl5/core_perl/CORE/msys-perl5_20.dll
+  #Store_LDFLAGS = /usr/lib/perl5/5.14/i686-cygwin-threads-64int/CORE/cygperl5_14.dll
+  archlib = $(shell perl -E 'use Config; print $$Config{archlib};')
+  libperl = $(shell perl -E 'use Config; print $$Config{libperl};')
+  Store_LDFLAGS = $(shell find ${archlib} -name ${libperl})
 
   Store_CXXFLAGS = \
     -I$(shell $(perl) -e 'use Config; print $$Config{archlibexp};')/CORE \
